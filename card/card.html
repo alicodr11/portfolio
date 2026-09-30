@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Preview Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      max-width: 380px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .card-details {
+      padding: 20px;
+    }
+
+    .category {
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #6b7280;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      margin: 8px 0;
+      color: #111827;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #4b5563;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .price-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .current-price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #059669;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .colors p {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .color-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .color-btn.active {
+      border-color: #111827;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #10b981;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: opacity 0.3s ease;
+    }
+
+    .toast.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-image">
+      <img id="main-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Headphones">
+    </div>
+
+    <div class="card-details">
+      <span class="category">Audio</span>
+      <h2>Wireless Headphones</h2>
+      <p class="description">High-quality sound with noise cancellation and 30-hour battery life.</p>
+      
+      <div class="price-box">
+        <span class="current-price">$199</span>
+        <span class="old-price">$249</span>
+      </div>
+
+      <div class="colors">
+        <p>Select Color:</p>
+        <div class="swatches">
+          <button class="color-btn active" data-color="black" style="background-color: #1a1a1a;"></button>
+          <button class="color-btn" data-color="blue" style="background-color: #1e3a8a;"></button>
+          <button class="color-btn" data-color="red" style="background-color: #991b1b;"></button>
+        </div>
+      </div>
+
+      <button id="add-btn" class="btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden">Added to Cart! 🛒</div>
+
+  <script>
+    const images = {
+      black: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500',
+      blue: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=500',
+      red: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500'
+    };
+
+    const mainImg = document.getElementById('main-img');
+    const colorBtns = document.querySelectorAll('.color-btn');
+    const addBtn = document.getElementById('add-btn');
+    const toast = document.getElementById('toast');
+
+    colorBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        colorBtns.forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+
+        const color = e.target.getAttribute('data-color');
+        mainImg.src = images[color];
+      });
+    });
+
+    addBtn.addEventListener('click', () => {
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2500);
+    });
+  </script>
+</body>
+</html>

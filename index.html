@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* animation strt */
+        .header-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .changing-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #38bdf8;
+            border-right: 3px solid #38bdf8;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: blinkCursor 0.75s step-end infinite;
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: #38bdf8; }
+        }
+            /* animation end */
+
+        :root {
+            --primary-color: #0d6efd;
+            --dark-color: #212529;
+            --light-bg: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+        }
+        .hero-section {
+            background: black;
+            color: #ffffff;
+            padding: 100px 0;
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+        }
+        .skill-badge {
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            margin: 4px;
+        }
+        footer {
+            background-color: var(--dark-color);
+            color: #ffffff;
+        }
+        a{
+            color: whitesmoke;
+        }
+        a:hover{
+            color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Ali Mehdi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <div class="header-container">
+        <h1><span id="typewriter" class="changing-text"></span></h1>
+    </div>
+            <p class="lead">Front-End Developer</p>
+            <p class="mx-auto" style="max-width: 600px;">
+                Entry-level developer passionate about building clean, responsive, and user-friendly web experiences.
+            </p>
+            <a href="#projects" class="btn btn-outline-success btn-lg mt-3 me-2">View My Work</a>
+            <a href="#contact" class="btn btn-outline-success btn-lg mt-3">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="fs-5">
+                        I am an entry-level Front-End Developer seeking opportunities to apply my knowledge in web technologies, gain practical experience, and grow within a collaborative technical team.
+                    </p>
+                    <div class="mt-4">
+                        <h5 class="fw-bold"><i class="fas fa-graduation-cap me-2 text-primary"></i>Education & Certifications</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>Web Development Certification</strong> – Mars Academy</li>
+                            <li class="mb-2"><strong>Class 9th</strong> – St. Patrick's Technical School (Completed 2025)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary mb-3"><i class="fas fa-code me-2"></i>Markup & Styling</h5>
+                            <div>
+                                <span class="badge bg-secondary skill-badge">HTML</span>
+                                <span class="badge bg-secondary skill-badge">CSS</span>
+                                <span class="badge bg-secondary skill-badge">javascript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary mb-3"><i class="fas fa-laptop-code me-2"></i>Programming & Libraries</h5>
+                            <div>
+                                <span class="badge bg-secondary skill-badge">Java</span>
+                                <span class="badge bg-secondary skill-badge">jQuery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="row">
+                
+                <!-- Project 1: Flower Website -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm project-card">
+                        <!-- Project Image Preview -->
+                        <img src="Screenshot 2026-09-30 194213.png" class="card-img-top" alt="Flower Store Project Screenshot" onerror="this.src='https://via.placeholder.com/400x220?text=Flower+Shop+Website'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Flower E-Commerce Web App</h5>
+                            <p class="card-text text-muted">
+                                A multi-page floral shop website featuring Home, About, Products, Customer Reviews, and Contact sections.
+                            </p>
+                            <div class="mb-3">
+                                <span class="badge bg-light text-dark border">HTML</span>
+                                <span class="badge bg-light text-dark border">CSS</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="flower/flower.html" class="btn btn-outline-primary btn-sm">View Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Web UI Project -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm project-card">
+                        <!-- Project Image Preview -->
+                        <img src="Screenshot 2026-09-30 194501.png" class="card-img-top" alt="UX Web Project Screenshot" onerror="this.src='https://via.placeholder.com/400x220?text=Web+UX+Project'">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Interactive Web Interface</h5>
+                            <p class="card-text text-muted">
+                                A responsive web design layout focusing on modern UI design and user experience structure.
+                            </p>
+                            <div class="mb-3">
+                                <span class="badge bg-light text-dark border">HTML</span>
+                                <span class="badge bg-light text-dark border">CSS</span>
+                                <span class="badge bg-light text-dark border">Bootstrap</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="card/card.html" class="btn btn-outline-primary btn-sm">View Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <p class="fs-5">Feel free to reach out to me for web development projects or entry-level roles!</p>
+                    <ul class="list-unstyled fs-6">
+                        <li class="mb-3"><i class="fas fa-envelope text-primary me-3"></i> <strong>Email:</strong> ravjanialimehdi@gmail.com</li>
+                        <li class="mb-3"><i class="fas fa-phone text-primary me-3"></i> <strong>Phone:</strong> 03438397361m</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Ali Mehdi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const phrases = [
+            "Hi, I am Ali Mehdi",
+            "I am a Front-End Web Developer",
+            "I build responsive web applications",
+            "Welcome to my portfolio!"
+        ];
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 1800;
+
+        const targetElement = document.getElementById("typewriter");
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                targetElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                targetElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, pauseTime);
+                return;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            const currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+            setTimeout(typeEffect, currentSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", typeEffect);
+    </script>
+</body>
+</html>
